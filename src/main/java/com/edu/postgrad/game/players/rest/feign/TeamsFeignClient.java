@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "zuul-api-gateway")
 public interface TeamsFeignClient {
 
-    @GetMapping("teams-service/team/{name}")
+    @GetMapping("teams-service/team/name/{name}")
     Team getTeamByName(@PathVariable String name);
 }

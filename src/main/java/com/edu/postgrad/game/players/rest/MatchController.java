@@ -54,7 +54,7 @@ public class MatchController {
     }
 
     @DeleteMapping("match/{id}")
-    public ResponseEntity deleteMatch(final Long id){
+    public ResponseEntity deleteMatch(@PathVariable final Long id){
         matchService.deleteMatch(id);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
@@ -71,7 +71,7 @@ public class MatchController {
         return matches;
     }
 
-    @GetMapping(value = {"match/location", "match/location/{location}"})
+    @GetMapping(value = {"matches/location", "matches/location/{location}"})
     public List<Match> getMatchByLocation(@PathVariable(required = false) Optional<String> location){
         List<Match> matches = matchService.getMatchesByLocation( location.orElse(matchConfiguration.getLocation()));
         return matches;
